@@ -1,0 +1,11 @@
+{
+  "name": "express1003",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/masukehon/express1003.git",
+  "author": "Kha <masuke96@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
