@@ -1,5 +1,16 @@
 const express = require("express");
+// require("express") theo mình nghĩ sẽ export 1 function
 
+// const phepTinh = require("PhepTinh");
+//nó sẽ hiểu là PhepTinh nằm trong node_modules
+
+// const PhepTinh = require("./PhepTinh").PhepTinh;
+//tương đương với bên dưới
+const { PhepTinh } = require("./PhepTinh");
+
+
+//chạy function express() và sẽ trả về cho app 1 kiểu dữ liệu gì đó. 
+//và thằng app mới truy xuất được thuộc tính
 const app = express();
 
 app.get('/', (req, res) => {
@@ -17,32 +28,6 @@ app.get('/b', (req, res) => {
 app.get('/chao/:name', (req, res) => {
     res.send("Chao " + req.params.name);
 });
-
-class PhepTinh {
-    constructor(tenPhepTinh, soA, soB) {
-        this.tenPhepTinh = tenPhepTinh;
-        this.soA = soA;
-        this.soB = soB;
-    }
-
-    getSign() {
-        const { tenPhepTinh } = this;
-        if (tenPhepTinh === "CONG") return "+";
-        if (tenPhepTinh === "TRU") return "-";
-        if (tenPhepTinh === "NHAN") return "*";
-        if (tenPhepTinh === "CHIA") return "/";
-        return undefined;
-    }
-
-    getResultString() {
-        if (this.getSign() != undefined) {
-            const { soA, soB } = this;
-            let chuoiPhepTinh = `${soA} ${this.getSign()} ${soB}`;
-            return `${chuoiPhepTinh} = ${eval(chuoiPhepTinh)}`;
-        }
-        return "Phep tinh khong hop le!";
-    }
-}
 
 app.get('/tinh/:tenPhepTinh/:soA/:soB', (req, res) => {
     let soA = parseInt(req.params.soA);
