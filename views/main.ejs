@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main HTML</title>
+</head>
+
+<body>
+    <% 
+        const arrWord = [
+            {_id: "abcd1", en:"One", vn:"Mot", isMemorized :true},
+            {_id: "abcd2", en:"Two", vn:"Hai", isMemorized :false},
+            {_id: "abcd3", en:"Three", vn:"Ba", isMemorized :false},
+            {_id: "abcd4", en:"Four", vn:"Bon", isMemorized :true}
+        ]; 
+    %>
+
+        <%arrWord.forEach(word => {%>
+            <div>
+                <h2 style="color:<% word.isMemorized ? 'green' : 'red' %>">
+                    <%=word.en%>
+                </h2>
+                <h2 style="color:<% if (word.isMemorized) {%> green <%} else {%> red <%}%>">
+                    <%=word.vn%>
+                </h2>
+            </div>
+            <%});%>
+
+
+
+</body>
+
+</html>
